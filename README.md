@@ -1,7 +1,9 @@
 # GoLang_Notes
 
 To create a workspace in - /users/you/go - This is the default install location
+
 To view this - $ go env GOPATH
+
 
 Create folders - 
 
