@@ -31,22 +31,3 @@ func main() {
 }
 
 // FYI - You cannot add an int with a float
-
-/*
-func main() {
-	var one int = 1
-	var two int = 2
-	var sum int = one + two
-	fmt.Println(sum)
-}
-
-
-
-// Another way to declare variables -
-func main() {
-	one := 1
-	two := 2
-	sum := one + two
-	fmt.Println(sum)
-}
-*/
