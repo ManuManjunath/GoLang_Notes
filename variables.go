@@ -10,6 +10,7 @@ import (
 var (
 	name, location string
 	age            int
+	x = 100 // Just to show how to specift a value
 )
 
 // If you don't specify value for the var, it uses a defaiult "zero value"
@@ -25,9 +26,8 @@ func main() {
 
 	a := 3.5
 	b := 6
+	// ":=" doesn't work outside of functions
 	// To add an int and a float
 	c := a + float64(b)
 	fmt.Println("c = ", c, " and of type", reflect.TypeOf(c))
 }
-
-// FYI - You cannot add an int with a float
