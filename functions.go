@@ -36,6 +36,10 @@ func sq_cube(x int) (int, int) {
   return sq, cube
   }
 
+	// To ignore certain return values
+	_, qb := sqCube(a)
+	fmt.Println(qb)
+
 // String operations
 func string_oper(name, loc string) (newName, newLoc string) {
   // Convert name to title case
