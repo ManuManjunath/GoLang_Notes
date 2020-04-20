@@ -28,5 +28,5 @@ func panicRecover() {
 	panic("panic - something bad happened")
 	// The below line won't run because the function has panicked.
 	fmt.Println("Done with panic")
-	// Now goes back to run the rest of the commands from the main function - Println("end")
+	// Now goes back to run the rest of the commands from the main function - Println("end") - unless panic(err) is added to the defer func
 }
