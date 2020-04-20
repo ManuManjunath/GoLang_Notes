@@ -5,8 +5,7 @@ import (
 )
 
 func main() {
-  // Arrays can have elements only of the same type.
-  // Arrays are of fixed length.
+  // Arrays can have elements only of the same type and are of fixed length.
   // Index starts from 0
   var arr1 [5]int
   // Default value is 0
