@@ -135,7 +135,7 @@ func main() {
 	central_srvr := make(map[string]string)
 	east_srvr := make(map[string]string)
 
-	fmt.Print("***** Gathering info - Region, DB Name, Environment, Blossom ID")
+	fmt.Print("***** Gathering info - Region, DB Name, Environment, application ID")
 	data_rgn_dbnm_env_ci := PullMetrics{}
 	bytes_rgn_dbnm_env_ci, err := queryInflux(qry_rgn_dbnm_env_ci)
 	if err != nil {
@@ -148,12 +148,12 @@ func main() {
 		if strings.HasPrefix(v.Tags["host"], "cxxxx") {
 			central_srvr["db_name"] = string(v.Tags["db_name"])
 			central_srvr["environment"] = string(v.Tags["environment"])
-			central_srvr["blossom_id"] = string(v.Tags["owner_application_ci"])
+			central_srvr["application_id"] = string(v.Tags["owner_application_ci"])
 			central_srvr["region"] = string(v.Tags["region"])
 		} else if strings.HasPrefix(v.Tags["host"], "exxxx") {
 			east_srvr["db_name"] = string(v.Tags["db_name"])
 			east_srvr["environment"] = string(v.Tags["environment"])
-			east_srvr["blossom_id"] = string(v.Tags["owner_application_ci"])
+			east_srvr["application_id"] = string(v.Tags["owner_application_ci"])
 			east_srvr["region"] = string(v.Tags["region"])
 		} else {
 			fmt.Println("Error reading data")
@@ -304,9 +304,9 @@ func main() {
 	fmt.Println("-------------------------------------------------------------------------------")
 	t1 := table.NewWriter()
 	t1.SetOutputMirror(os.Stdout)
-	t1.AppendHeader(table.Row{"Host", "Blossom ID", "DB Name", "Environment", "Version", "Compliance", "Patroni already"})
+	t1.AppendHeader(table.Row{"Host", "application ID", "DB Name", "Environment", "Version", "Compliance", "Patroni already"})
 	t1.AppendRows([]table.Row{{central_srvr["host"],
-		central_srvr["blossom_id"],
+		central_srvr["application_id"],
 		central_srvr["db_name"],
 		central_srvr["environment"],
 		central_srvr["version"],
@@ -314,7 +314,7 @@ func main() {
 		central_srvr["compliance"],
 		central_srvr["patroni_already"]}})
 	t1.AppendRows([]table.Row{{east_srvr["host"],
-		east_srvr["blossom_id"],
+		east_srvr["application_id"],
 		east_srvr["db_name"],
 		east_srvr["environment"],
 		east_srvr["version"],
